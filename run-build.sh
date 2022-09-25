@@ -1,15 +1,10 @@
 #!/bin/bash
 
-failure () {
-    echo "$0 Failed"
-    echo "Failed build located in ${BUILD_DIR}"
-    exit -1
-}
+# Abort script if any command returns error
+set -e
 
+# Source build environment
 . ./poky/oe-init-build-env rpi-build
 
-#bitbake quilt-native
-# did bitbake run happily?
-#if [ $? -ne 0 ]; then
-#    failure
-#fi
+# Add BSP layer
+bitbake-layers add-layer ../poky/meta-raspberrypi
