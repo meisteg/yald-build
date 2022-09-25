@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: crops/poky:ubuntu-22.04
-      options: --user runner
+      options: --user $(id -u):$(id -g)
 
     steps:
       #- run: /usr/bin/poky-entry.py --workdir=/__w/yald-build/yald-build
