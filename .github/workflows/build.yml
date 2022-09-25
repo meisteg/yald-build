@@ -21,9 +21,9 @@ jobs:
       - run: id -u
       - run: id -g
       - run: pwd
-      - run: ls -l
+      - run: ls -la
       - run: docker pull crops/poky:ubuntu-22.04
-      #- run: docker run --rm -v /__w/yald-build/yald-build:/workdir crops/poky:ubuntu-22.04 --workdir=/workdir
+      - run: docker run --rm -v /home/runner/work/yald-build/yald-build:/workdir crops/poky:ubuntu-22.04 --workdir=/workdir
       #- run: /usr/bin/poky-entry.py --workdir=/__w/yald-build/yald-build
       - run: whoami
       - run: id -u
