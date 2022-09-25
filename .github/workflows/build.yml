@@ -9,10 +9,11 @@ on:
 jobs:
   rpi:
     runs-on: ubuntu-latest
-    container: crops/yocto:ubuntu-22.04-base
+    #container: crops/yocto:ubuntu-22.04-base
 
     steps:
       - run: whoami
+      - run: pwd
       #- uses: actions/checkout@v3
       #- name: Clone required repos
       #  run: ./repo-mgr.sh init
