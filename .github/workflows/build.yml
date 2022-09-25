@@ -12,6 +12,7 @@ jobs:
     container: crops/yocto:ubuntu-22.04-base
 
     steps:
-      - uses: actions/checkout@v3
-      - name: Clone required repos
-        run: ./repo-mgr.sh init
+      - run: whoami
+      #- uses: actions/checkout@v3
+      #- name: Clone required repos
+      #  run: ./repo-mgr.sh init
