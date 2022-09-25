@@ -31,8 +31,6 @@ _clone() {
         git fetch origin
         git checkout -q ${repo_heads[$i]}
         git checkout -b repo-mgr
-        #git branch repo-mgr ${repo_heads[$i]}
-        #git checkout repo-mgr
         popd > /dev/null
 
         echo ""
