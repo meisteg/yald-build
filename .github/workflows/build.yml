@@ -11,6 +11,7 @@ jobs:
     container: crops/poky:ubuntu-22.04
 
     steps:
+      - run: /usr/bin/poky-entry.py --workdir=$(pwd)
       - run: whoami
       - run: id -u
       - run: id -g
