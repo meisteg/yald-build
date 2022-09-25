@@ -11,7 +11,7 @@ jobs:
     container: crops/poky:ubuntu-22.04
 
     steps:
-      - run: /usr/bin/poky-entry.py --workdir=$(pwd)
+      - run: /usr/bin/poky-entry.py --workdir=/__w/yald-build/yald-build
       - run: whoami
       - run: id -u
       - run: id -g
