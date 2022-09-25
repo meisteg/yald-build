@@ -8,22 +8,11 @@ on:
 jobs:
   rpi:
     runs-on: ubuntu-latest
-    #container:
-    #  image: crops/poky:ubuntu-22.04
-    #  options: --user runner
-    #  volumes:
-    #    - /etc/passwd:/etc/passwd:ro
-    #    - /etc/shadow:/etc/shadow:ro
-    #    - /etc/group:/etc/group:ro"
 
     steps:
       - uses: actions/checkout@v3
       - name: Clone required repos
         run: ./repo-mgr.sh init
-      #- run: whoami
-      #- run: id -u
-      #- run: id -g
-      #- run: pwd
-      #- run: ls -la
       #- run: docker pull crops/poky:ubuntu-22.04
-      - run: docker run --rm -t -v /home/runner/work/yald-build/yald-build:/workdir crops/poky:ubuntu-22.04 --workdir=/workdir run-build.sh
+      - name: Run build in container
+        run: docker run --rm -t -v $(pwd):/workdir crops/poky:ubuntu-22.04 --workdir=/workdir /workdir/run-build.sh
