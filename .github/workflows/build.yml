@@ -8,7 +8,7 @@ on:
 jobs:
   rpi:
     runs-on: ubuntu-latest
-    #container: crops/poky:ubuntu-22.04
+    container: crops/poky:ubuntu-22.04
 
     steps:
       - run: whoami
