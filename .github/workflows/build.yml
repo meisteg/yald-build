@@ -9,7 +9,7 @@ on:
 jobs:
   rpi:
     runs-on: ubuntu-latest
-    container: crops/poky:ubuntu-22.04
+    container: crops/yocto:ubuntu-22.04-base
 
     steps:
       - uses: actions/checkout@v3
