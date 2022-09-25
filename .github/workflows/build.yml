@@ -8,15 +8,17 @@ on:
 jobs:
   rpi:
     runs-on: ubuntu-latest
-    container:
-      image: crops/poky:ubuntu-22.04
-      options: --user runner
-      volumes:
-        - /etc/passwd:/etc/passwd:ro
-        - /etc/shadow:/etc/shadow:ro
-        - /etc/group:/etc/group:ro"
+    #container:
+    #  image: crops/poky:ubuntu-22.04
+    #  options: --user runner
+    #  volumes:
+    #    - /etc/passwd:/etc/passwd:ro
+    #    - /etc/shadow:/etc/shadow:ro
+    #    - /etc/group:/etc/group:ro"
 
     steps:
+      - run: docker pull crops/poky:ubuntu-22.04
+      - run: docker run --rm -it -v /__w/yald-build/yald-build:/workdir crops/poky --workdir=/workdir
       #- run: /usr/bin/poky-entry.py --workdir=/__w/yald-build/yald-build
       - run: whoami
       - run: id -u
