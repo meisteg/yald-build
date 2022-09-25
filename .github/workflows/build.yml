@@ -17,18 +17,13 @@ jobs:
     #    - /etc/group:/etc/group:ro"
 
     steps:
-      - run: whoami
-      - run: id -u
-      - run: id -g
-      - run: pwd
-      - run: ls -la
-      - run: docker pull crops/poky:ubuntu-22.04
-      - run: docker run --rm -t -v /home/runner/work/yald-build/yald-build:/workdir crops/poky:ubuntu-22.04 --workdir=/workdir
-      #- run: /usr/bin/poky-entry.py --workdir=/__w/yald-build/yald-build
-      - run: whoami
-      - run: id -u
-      - run: id -g
-      - run: pwd
-      #- uses: actions/checkout@v3
-      #- name: Clone required repos
-      #  run: ./repo-mgr.sh init
+      - uses: actions/checkout@v3
+      - name: Clone required repos
+        run: ./repo-mgr.sh init
+      #- run: whoami
+      #- run: id -u
+      #- run: id -g
+      #- run: pwd
+      #- run: ls -la
+      #- run: docker pull crops/poky:ubuntu-22.04
+      - run: docker run --rm -t -v /home/runner/work/yald-build/yald-build:/workdir crops/poky:ubuntu-22.04 --workdir=/workdir run-build.sh
