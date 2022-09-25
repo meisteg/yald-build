@@ -8,10 +8,12 @@ on:
 jobs:
   rpi:
     runs-on: ubuntu-latest
-    container: crops/poky:ubuntu-22.04
+    container:
+      image: crops/poky:ubuntu-22.04
+      options: --user runner
 
     steps:
-      - run: /usr/bin/poky-entry.py --workdir=/__w/yald-build/yald-build
+      #- run: /usr/bin/poky-entry.py --workdir=/__w/yald-build/yald-build
       - run: whoami
       - run: id -u
       - run: id -g
