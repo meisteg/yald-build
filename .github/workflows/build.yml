@@ -4,15 +4,16 @@ on:
   push:
     branches: [ "master" ]
   pull_request:
-    branches: [ "master" ]
 
 jobs:
   rpi:
     runs-on: ubuntu-latest
-    #container: crops/yocto:ubuntu-22.04-base
+    #container: crops/poky:ubuntu-22.04
 
     steps:
       - run: whoami
+      - run: id -u
+      - run: id -g
       - run: pwd
       #- uses: actions/checkout@v3
       #- name: Clone required repos
