@@ -8,3 +8,6 @@ set -e
 
 # Add BSP layer
 bitbake-layers add-layer ../poky/meta-raspberrypi
+
+# Build
+bitbake core-image-minimal
