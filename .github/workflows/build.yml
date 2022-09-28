@@ -6,8 +6,12 @@ on:
   pull_request:
 
 jobs:
-  rpi:
+  machine-matrix:
     runs-on: ubuntu-22.04
+
+    strategy:
+      matrix:
+        machine: [raspberrypi3-64, qemux86-64, intel-corei7-64]
 
     steps:
       - name: Maximize build space
@@ -18,8 +22,17 @@ jobs:
           remove-dotnet: 'true'
           remove-android: 'true'
           remove-haskell: 'true'
+
       - uses: actions/checkout@v3
+
       - name: Clone required repos
         run: ./repo-mgr.sh init
+
       - name: Run build in container
-        run: docker run --rm -t -v $(pwd):/workdir -e MACHINE=raspberrypi3-64 crops/poky:ubuntu-22.04 --workdir=/workdir /workdir/run-build.sh
+        run: docker run --rm -t -v $(pwd):/workdir -e MACHINE=${{ matrix.machine }} crops/poky:ubuntu-22.04 --workdir=/workdir /workdir/run-build.sh
+
+      - name: Save build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ matrix.machine }}-artifacts
+          path: build/tmp/deploy/images/${{ matrix.machine }}/

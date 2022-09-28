@@ -4,10 +4,11 @@
 set -e
 
 # Source build environment
-. ./poky/oe-init-build-env rpi-build
+. ./poky/oe-init-build-env build
 
 # Add BSP layer
 bitbake-layers add-layer ../poky/meta-raspberrypi
+bitbake-layers add-layer ../poky/meta-intel
 
 # Build
 bitbake core-image-minimal
