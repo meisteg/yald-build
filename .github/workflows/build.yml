@@ -20,11 +20,13 @@ jobs:
         with:
           root-reserve-mb: 1024
           swap-size-mb: 1024
+          temp-reserve-mb: 1024
           remove-dotnet: 'true'
           remove-android: 'true'
           remove-haskell: 'true'
 
-      - uses: actions/checkout@v3
+      - name: Clone repository
+        uses: actions/checkout@v3
 
       - name: Clone required repos
         run: ./repo-mgr.sh init
@@ -38,7 +40,9 @@ jobs:
           key: ${{ matrix.machine }}-${{ hashFiles('default.conf') }}
 
       - name: Run build in container
-        run: docker run --rm -t -v $(pwd):/workdir -e MACHINE=${{ matrix.machine }} crops/poky:ubuntu-22.04 --workdir=/workdir /workdir/run-build.sh
+        run: |
+          docker run --rm -t -v $(pwd):/workdir -e MACHINE=${{ matrix.machine }} crops/poky:ubuntu-22.04 --workdir=/workdir /workdir/run-build.sh
+          find build/tmp/deploy/images/${{ matrix.machine }} -type l -delete
 
       - name: Save build artifacts
         uses: actions/upload-artifact@v3
