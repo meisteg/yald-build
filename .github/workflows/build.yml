@@ -31,14 +31,6 @@ jobs:
       - name: Clone required repos
         run: ./repo-mgr.sh init
 
-      - name: Cache downloads and shared-state files
-        uses: actions/cache@v3
-        with:
-          path: |
-            build/downloads
-            build/sstate-cache
-          key: ${{ matrix.machine }}-${{ hashFiles('default.conf') }}
-
       - name: Run build in container
         run: |
           docker run --rm -t -v $(pwd):/workdir -e MACHINE=${{ matrix.machine }} crops/poky:ubuntu-22.04 --workdir=/workdir /workdir/run-build.sh
