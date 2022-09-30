@@ -45,3 +45,14 @@ jobs:
         with:
           name: ${{ matrix.machine }}-artifacts
           path: build/tmp/deploy/images/${{ matrix.machine }}/
+
+      - name: Disk space report after build
+        run: |
+          echo "Memory and swap:"
+          free
+          echo
+          swapon --show
+          echo
+          echo "Available storage:"
+          df -h
+          echo
