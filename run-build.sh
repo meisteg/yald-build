@@ -11,4 +11,4 @@ bitbake-layers add-layer ../poky/meta-raspberrypi
 bitbake-layers add-layer ../poky/meta-intel
 
 # Build
-bitbake core-image-minimal
+bitbake core-image-base
