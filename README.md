@@ -35,7 +35,7 @@ $ umount /dev/sdf2
 Now burn the `.wic` image for the desired target onto the flash drive, for example:
 
 ```
-$ sudo dd if=core-image-base-intel-corei7-64.wic of=/dev/sdf status=progress
+$ sudo dd if=yald-image-dev-intel-corei7-64.wic of=/dev/sdf status=progress
 $ sync
 ```
 
