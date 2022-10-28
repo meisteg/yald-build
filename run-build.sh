@@ -14,8 +14,8 @@ bitbake-layers add-layer ../poky/meta-raspberrypi
 bitbake-layers add-layer ../poky/meta-intel
 bitbake-layers add-layer ../poky/meta-openembedded/meta-oe
 bitbake-layers add-layer ../poky/meta-openembedded/meta-filesystems
-bitbake-layers add-layer ../poky/meta-openembedded/meta-networking
 bitbake-layers add-layer ../poky/meta-openembedded/meta-python
+bitbake-layers add-layer ../poky/meta-openembedded/meta-networking
 bitbake-layers add-layer ../poky/meta-virtualization
 bitbake-layers add-layer ../poky/meta-yald
 
