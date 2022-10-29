@@ -30,6 +30,15 @@ jobs:
       - name: Clone required repos
         run: ./repo-mgr.sh init
 
+      - name: Cache shared-state files
+        uses: actions/cache@v3
+        with:
+          path: build/sstate-cache
+          key: sstate-${{ matrix.machine }}-${{ github.run_id }}
+          restore-keys: |
+            sstate-${{ matrix.machine }}-
+            sstate-
+
       - name: Run build in container
         run: |
           docker run --rm -t -v $(pwd):/workdir -e MACHINE=${{ matrix.machine }} crops/poky:ubuntu-22.04 --workdir=/workdir /workdir/run-build.sh
