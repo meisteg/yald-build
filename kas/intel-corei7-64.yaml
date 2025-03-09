@@ -1,0 +1,16 @@
+header:
+  version: 18
+  includes:
+  - distro.yaml
+
+machine: intel-corei7-64
+
+repos:
+  meta-intel:
+    url: "https://git.yoctoproject.org/git/meta-intel"
+    commit: 0ee9e8454cd41dcb0f49df7dcf2182b4d5e7cc96
+    path: layers/meta-intel
+
+artifacts:
+  dev-image: tmp/deploy/images/intel-corei7-64/yald-image-dev-intel-corei7-64.rootfs.wic
+  prod-image: tmp/deploy/images/intel-corei7-64/yald-image-prod-intel-corei7-64.rootfs.wic

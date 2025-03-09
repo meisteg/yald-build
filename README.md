@@ -15,20 +15,22 @@ $ sudo pip install kas
 ```bash
 $ git clone https://github.com/meisteg/yald-build.git
 $ cd yald-build
-$ kas build qemux86-64.yaml
+$ kas build kas/<machine>.yaml
 ```
+
+Replace `<machine>` with `qemux86-64` or `intel-corei7-64`.
 
 ## Run on QEMU
 
 ```bash
-$ kas shell qemux86-64.yaml -c "runqemu nographic slirp"
+$ kas shell kas/qemux86-64.yaml -c "runqemu nographic slirp"
 ```
 
 To quit QEMU, enter `Ctrl-A x`.
 
 ## Run on target
 
-Once the image is built, the bootable image is in the `build/tmp/deploy/images/xxx` directory, where `xxx` refers to the machine name used in the build.
+Once the image is built, the bootable image is in the `build/tmp/deploy/images/<machine>` directory.
 
 Under Linux, insert a USB flash drive or SD card (depending on what the target machine requires).  Assuming the drive takes device `/dev/sdf`, use `dd` to copy the image to it.  Before the image can be flashed onto the drive, it should be un-mounted. Some Linux distros may automatically mount a USB drive when it is plugged in. Using device `/dev/sdf` as an example, find all mounted partitions:
 
@@ -46,7 +48,7 @@ $ umount /dev/sdf2
 Now burn the `.wic` image for the desired target onto the flash drive, for example:
 
 ```bash
-$ sudo dd if=yald-image-dev-intel-corei7-64.wic of=/dev/sdf status=progress
+$ sudo dd if=yald-image-dev-intel-corei7-64.rootfs.wic of=/dev/sdf status=progress
 $ sync
 ```
 
