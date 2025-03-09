@@ -1,0 +1,10 @@
+header:
+  version: 18
+  includes:
+  - distro.yaml
+
+machine: qemux86-64
+
+artifacts:
+  dev-image: tmp/deploy/images/qemux86-64/yald-image-dev-qemux86-64.rootfs.ext4
+  prod-image: tmp/deploy/images/qemux86-64/yald-image-prod-qemux86-64.rootfs.ext4

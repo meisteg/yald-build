@@ -15,13 +15,13 @@ $ sudo pip install kas
 ```bash
 $ git clone https://github.com/meisteg/yald-build.git
 $ cd yald-build
-$ kas build kas.yaml
+$ kas build qemux86-64.yaml
 ```
 
 ## Run on QEMU
 
 ```bash
-$ kas shell kas.yaml -c "runqemu nographic slirp"
+$ kas shell qemux86-64.yaml -c "runqemu nographic slirp"
 ```
 
 To quit QEMU, enter `Ctrl-A x`.

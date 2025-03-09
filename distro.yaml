@@ -1,7 +1,6 @@
 header:
   version: 18
 
-machine: qemux86-64
 distro: yald
 
 target:
@@ -17,7 +16,6 @@ repos:
     layers:
       meta:
       meta-poky:
-      meta-yocto-bsp:
 
   meta-yald:
     path: layers/meta-yald
@@ -25,7 +23,3 @@ repos:
 local_conf_header:
   base: |
     INHERIT += "rm_work"
-
-artifacts:
-  dev-image: tmp/deploy/images/qemux86-64/yald-image-dev-qemux86-64.rootfs.ext4
-  prod-image: tmp/deploy/images/qemux86-64/yald-image-prod-qemux86-64.rootfs.ext4
