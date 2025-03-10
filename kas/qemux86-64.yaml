@@ -1,7 +1,7 @@
 header:
   version: 18
   includes:
-  - distro.yaml
+  - kas/distro.yaml
 
 machine: qemux86-64
 
