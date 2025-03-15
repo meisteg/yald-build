@@ -10,6 +10,12 @@
 $ sudo pip install kas
 ```
 
+If an externally managed environment error is seen, Ubuntu-based systems have the option to run:
+
+```bash
+$ sudo apt install kas
+```
+
 ### Start the Build
 
 ```bash
