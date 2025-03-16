@@ -34,8 +34,16 @@ $ kas build kas/<machine>.yaml:kas/sdk.yaml
 
 ## Run on QEMU
 
+Development image:
+
 ```bash
-$ kas shell kas/qemux86-64.yaml -c "runqemu nographic slirp"
+$ kas shell kas/<machine>.yaml -c "runqemu tmp/deploy/images/<machine>/yald-image-dev-<machine>.rootfs.qemuboot.conf nographic slirp"
+```
+
+Production image:
+
+```bash
+$ kas shell kas/<machine>.yaml -c "runqemu tmp/deploy/images/<machine>/yald-image-prod-<machine>.rootfs.qemuboot.conf nographic slirp"
 ```
 
 To quit QEMU, enter `Ctrl-A x`.

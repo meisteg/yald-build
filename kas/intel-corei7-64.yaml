@@ -10,3 +10,8 @@ repos:
     url: "https://git.yoctoproject.org/git/meta-intel"
     commit: 0ee9e8454cd41dcb0f49df7dcf2182b4d5e7cc96
     path: layers/meta-intel
+
+local_conf_header:
+  intel-corei7-64: |
+    # Needed for qemu
+    IMAGE_FSTYPES += "ext4"
