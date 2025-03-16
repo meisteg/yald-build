@@ -26,6 +26,12 @@ $ kas build kas/<machine>.yaml
 
 Replace `<machine>` with `qemux86-64` or `intel-corei7-64`.
 
+### Build the Software Development Kit (SDK)
+
+```bash
+$ kas build kas/<machine>.yaml:kas/sdk.yaml
+```
+
 ## Run on QEMU
 
 ```bash
