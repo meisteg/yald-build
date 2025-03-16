@@ -2,3 +2,4 @@
 /layers/*
 !/layers/meta-yald
 .kas_shell_history
+.qodo
