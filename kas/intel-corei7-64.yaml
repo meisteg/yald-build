@@ -15,3 +15,6 @@ local_conf_header:
   intel-corei7-64: |
     # Needed for qemu
     IMAGE_FSTYPES += "ext4"
+
+    # Enable faster flashing with bmaptool
+    IMAGE_FSTYPES += "wic.bmap"
