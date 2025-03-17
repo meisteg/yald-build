@@ -52,24 +52,29 @@ To quit QEMU, enter `Ctrl-A x`.
 
 Once the image is built, the bootable image is in the `build/tmp/deploy/images/<machine>` directory.
 
-Under Linux, insert a USB flash drive or SD card (depending on what the target machine requires).  Assuming the drive takes device `/dev/sdf`, use `dd` to copy the image to it.  Before the image can be flashed onto the drive, it should be un-mounted. Some Linux distros may automatically mount a USB drive when it is plugged in. Using device `/dev/sdf` as an example, find all mounted partitions:
+Under Linux, insert a USB flash drive or SD card (depending on what the target machine requires).  Use `bmaptool` or `dd` to copy the image to it.  Before the image can be flashed onto the drive, it should be un-mounted. Some Linux distros may automatically mount a USB drive when it is plugged in. Using device `/dev/sdX` as an example, find all mounted partitions:
 
 ```bash
-$ mount | grep sdf
+$ mount | grep sdX
 ```
 
 and un-mount those that are mounted, for example:
 
 ```bash
-$ umount /dev/sdf1
-$ umount /dev/sdf2
+$ umount /dev/sdX1
+$ umount /dev/sdX2
 ```
 
-Now burn the `.wic` image for the desired target onto the flash drive, for example:
+Now copy the `.wic` image for the desired target onto the flash drive. Using `bmaptool` is recommended as it is much faster than `dd`:
 
 ```bash
-$ sudo dd if=yald-image-dev-intel-corei7-64.rootfs.wic of=/dev/sdf status=progress
-$ sync
+$ sudo bmaptool copy build/tmp/deploy/images/intel-corei7-64/yald-image-dev-intel-corei7-64.rootfs.wic /dev/sdX
 ```
 
-This should give you a bootable flash device.  Insert the device into a bootable USB socket on the target, and power on.
+or
+
+```bash
+$ sudo dd if=build/tmp/deploy/images/intel-corei7-64/yald-image-dev-intel-corei7-64.rootfs.wic of=/dev/sdX status=progress
+```
+
+This should give you a bootable device.  Insert the device into the target and power on.
