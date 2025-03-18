@@ -18,3 +18,7 @@ local_conf_header:
 
     # Enable faster flashing with bmaptool
     IMAGE_FSTYPES += "wic.bmap"
+
+    # bmaptool supports flashing a compressed wic file.
+    # Create one to use less space when saving build artifacts.
+    IMAGE_FSTYPES += "wic.xz"
