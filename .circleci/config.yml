@@ -12,6 +12,8 @@ jobs:
           name: Install kas
           command: |
             pip3 install kas
+            export PATH=~/.local/bin:$PATH
+            echo $PATH
             kas --version
       - run:
           name: Build Target Image
