@@ -1,16 +1,24 @@
 version: 2.1
-
-jobs:
-  build-intel:
+executors:
+  yocto-executor:
     docker:
       - image: crops/yocto:fedora-40-base
+    working_directory: ~/project
+jobs:
+  build-yocto:
+    executor: yocto-executor
     steps:
       - checkout
       - run:
-          name: "kas version check"
-          command: "kas --version"
-
+          name: Install kas
+          command: |
+            dnf install -y python3-pip
+            pip3 install kas
+      - run:
+          name: Build Yocto Project
+          command: kas build kas.yml
 workflows:
-  build-all:
+  version: 2
+  build:
     jobs:
-      - build-intel
+      - build-yocto
