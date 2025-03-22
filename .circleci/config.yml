@@ -12,9 +12,13 @@ jobs:
           name: Install kas
           command: |
             pip3 install kas
+            kas --version
       - run:
-          name: Build Yocto Project
+          name: Build Target Image
           command: kas build kas/intel-corei7-64.yaml
+      - run:
+          name: Build SDK
+          command: kas build kas/intel-corei7-64.yaml:kas/sdk.yaml
 workflows:
   version: 2
   build:
