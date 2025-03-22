@@ -2,17 +2,16 @@ version: 2.1
 executors:
   yocto-executor:
     docker:
-      - image: crops/yocto:fedora-40-base
-    working_directory: ~/project
+      - image: fedora:41
 jobs:
   build-yocto:
     executor: yocto-executor
     steps:
       - checkout
       - run:
-          name: Install kas
+          name: Install dependencies
           command: |
-            sudo dnf install -y python3-pip
+            dnf install -y python3-pip git
             pip3 install kas
       - run:
           name: Build Yocto Project
