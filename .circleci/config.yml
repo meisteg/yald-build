@@ -12,11 +12,11 @@ jobs:
       - run:
           name: Install kas
           command: |
-            dnf install -y python3-pip
+            sudo dnf install -y python3-pip
             pip3 install kas
       - run:
           name: Build Yocto Project
-          command: kas build kas.yml
+          command: kas build kas/intel-corei7-64.yaml
 workflows:
   version: 2
   build:
