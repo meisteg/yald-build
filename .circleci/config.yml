@@ -23,6 +23,11 @@ jobs:
             pip3 install kas
             kas --version
       - run:
+          name: Disable unprivileged user namespace restrictions
+          # Resolves "User namespaces are not usable by BitBake" error
+          # See also: https://discourse.ubuntu.com/t/ubuntu-24-04-lts-noble-numbat-release-notes/39890#p-99950-unprivileged-user-namespace-restrictions
+          command: echo 0 | sudo tee /proc/sys/kernel/apparmor_restrict_unprivileged_userns
+      - run:
           name: Build Target Image
           command: kas build kas/<< parameters.target >>.yaml
       - run:
