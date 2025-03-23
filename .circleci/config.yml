@@ -28,7 +28,7 @@ workflows:
   version: 2
   build:
     jobs:
-      - build-yocto
+      - build-yocto:
           matrix:
             parameters:
               target: [intel-corei7-64, qemux86-64]
