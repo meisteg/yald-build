@@ -5,6 +5,9 @@ executors:
       image: ubuntu-2404:2024.11.1
 jobs:
   build-yocto:
+    parameters:
+      target:
+        type: string
     executor: linux-executor
     steps:
       - checkout
