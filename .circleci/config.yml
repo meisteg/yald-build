@@ -1,14 +1,11 @@
 version: 2.1
 executors:
-  yocto-executor:
-    docker:
-      - image: crops/yocto:fedora-40-base
   linux-executor:
     machine:
       image: ubuntu-2404:2024.11.1
 jobs:
   build-yocto:
-    executor: yocto-executor
+    executor: linux-executor
     steps:
       - checkout
       - run:
@@ -21,22 +18,17 @@ jobs:
       - run:
           name: Node specs
           command: df -h
-      # - run:
-      #     name: Build Target Image
-      #     command: kas build kas/intel-corei7-64.yaml
-      # - run:
-      #     name: Build SDK
-      #     command: kas build kas/intel-corei7-64.yaml:kas/sdk.yaml
-  node-test:
-    executor: linux-executor
-    steps:
-      - checkout
       - run:
-          name: Node specs
-          command: df -h
+          name: Build Target Image
+          command: kas build kas/intel-corei7-64.yaml
+      - run:
+          name: Build SDK
+          command: kas build kas/intel-corei7-64.yaml:kas/sdk.yaml
 workflows:
   version: 2
   build:
     jobs:
       - build-yocto
-      - node-test
+          matrix:
+            parameters:
+              target: [intel-corei7-64, qemux86-64]
