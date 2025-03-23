@@ -3,6 +3,8 @@ executors:
   yocto-executor:
     docker:
       - image: crops/yocto:fedora-40-base
+        environment:
+          PATH: ~/.local/bin:$PATH
 jobs:
   build-yocto:
     executor: yocto-executor
@@ -12,7 +14,6 @@ jobs:
           name: Install kas
           command: |
             pip3 install kas
-            export PATH=~/.local/bin:$PATH
             echo $PATH
             kas --version
       - run:
