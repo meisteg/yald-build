@@ -10,7 +10,7 @@ target:
 repos:
   poky:
     url: "https://git.yoctoproject.org/git/poky"
-    commit: 11a8dec6e29ac0b2fd942c0fc00dd7fc30658841   # styhead-5.1.3
+    commit: 70dc28ac287bf35541270cae1d99130a0f6b7b5f   # styhead-5.1.4
     path: layers/poky
     layers:
       meta:

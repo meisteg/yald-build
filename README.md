@@ -37,13 +37,13 @@ $ kas build kas/<machine>.yaml:kas/sdk.yaml
 Development image:
 
 ```bash
-$ kas shell kas/<machine>.yaml -c "runqemu tmp/deploy/images/<machine>/yald-image-dev-<machine>.rootfs.qemuboot.conf nographic slirp"
+$ kas shell kas/<machine>.yaml -c "runqemu <machine> tmp/deploy/images/<machine>/yald-image-dev-<machine>.rootfs.qemuboot.conf nographic slirp"
 ```
 
 Production image:
 
 ```bash
-$ kas shell kas/<machine>.yaml -c "runqemu tmp/deploy/images/<machine>/yald-image-prod-<machine>.rootfs.qemuboot.conf nographic slirp"
+$ kas shell kas/<machine>.yaml -c "runqemu <machine> tmp/deploy/images/<machine>/yald-image-prod-<machine>.rootfs.qemuboot.conf nographic slirp"
 ```
 
 To quit QEMU, enter `Ctrl-A x`.
@@ -68,7 +68,7 @@ $ umount /dev/sdX2
 Now copy the `.wic` image for the desired target onto the flash drive. Using `bmaptool` is recommended as it is much faster than `dd`:
 
 ```bash
-$ sudo bmaptool copy build/tmp/deploy/images/intel-corei7-64/yald-image-dev-intel-corei7-64.rootfs.wic /dev/sdX
+$ sudo bmaptool copy build/tmp/deploy/images/intel-corei7-64/yald-image-dev-intel-corei7-64.rootfs.wic.xz /dev/sdX
 ```
 
 or
