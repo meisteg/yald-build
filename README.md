@@ -21,7 +21,7 @@ $ sudo apt install kas
 ```bash
 $ git clone https://github.com/meisteg/yald-build.git
 $ cd yald-build
-$ kas build kas/<machine>.yaml
+$ kas-container build kas/<machine>.yaml
 ```
 
 Replace `<machine>` with `qemux86-64` or `intel-corei7-64`.
@@ -29,7 +29,7 @@ Replace `<machine>` with `qemux86-64` or `intel-corei7-64`.
 ### Build the Software Development Kit (SDK)
 
 ```bash
-$ kas build kas/<machine>.yaml:kas/sdk.yaml
+$ kas-container build kas/<machine>.yaml:kas/sdk.yaml
 ```
 
 ## Run on QEMU
@@ -37,13 +37,13 @@ $ kas build kas/<machine>.yaml:kas/sdk.yaml
 Development image:
 
 ```bash
-$ kas shell kas/<machine>.yaml -c "runqemu <machine> tmp/deploy/images/<machine>/yald-image-dev-<machine>.rootfs.qemuboot.conf nographic slirp"
+$ kas-container shell kas/<machine>.yaml -c "runqemu <machine> tmp/deploy/images/<machine>/yald-image-dev-<machine>.rootfs.qemuboot.conf nographic slirp"
 ```
 
 Production image:
 
 ```bash
-$ kas shell kas/<machine>.yaml -c "runqemu <machine> tmp/deploy/images/<machine>/yald-image-prod-<machine>.rootfs.qemuboot.conf nographic slirp"
+$ kas-container shell kas/<machine>.yaml -c "runqemu <machine> tmp/deploy/images/<machine>/yald-image-prod-<machine>.rootfs.qemuboot.conf nographic slirp"
 ```
 
 To quit QEMU, enter `Ctrl-A x`.
