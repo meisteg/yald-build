@@ -26,9 +26,10 @@ jobs:
       - run:
           name: Build Target Image
           command: kas-container build kas/<< parameters.target >>.yaml
-      - run:
-          name: Build SDK
-          command: kas-container build kas/<< parameters.target >>.yaml:kas/sdk.yaml
+      # Disable SDK builds since not actively used to reduce build time
+      # - run:
+      #     name: Build SDK
+      #     command: kas-container build kas/<< parameters.target >>.yaml:kas/sdk.yaml
 workflows:
   version: 2
   build:
