@@ -20,5 +20,5 @@ repos:
     path: layers/meta-yald
 
 local_conf_header:
-  base: |
+  reduce_diskspace: |
     INHERIT += "rm_work"

@@ -1,0 +1,20 @@
+header:
+  version: 14
+  includes:
+  - kas/distro.yaml
+
+machine: raspberrypi3-64
+
+repos:
+  meta-raspberrypi:
+    url: "https://git.yoctoproject.org/git/meta-raspberrypi"
+    commit: 1059a239ca756d97e99f0ef7d5a0debc5200db7a
+    path: layers/meta-raspberrypi
+
+local_conf_header:
+  serial_output: |
+    ENABLE_UART = "1"
+
+  fstypes: |
+    # Enable faster flashing with bmaptool
+    IMAGE_FSTYPES = "wic.xz wic.bmap"
