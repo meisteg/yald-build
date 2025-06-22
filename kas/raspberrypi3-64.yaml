@@ -13,7 +13,8 @@ repos:
 
 local_conf_header:
   serial_output: |
-    ENABLE_UART = "1"
+    # Uncomment to enable serial
+    # ENABLE_UART = "1"
 
   fstypes: |
     # Enable faster flashing with bmaptool
