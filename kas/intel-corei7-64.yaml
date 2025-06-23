@@ -12,7 +12,7 @@ repos:
     path: layers/meta-intel
 
 local_conf_header:
-  intel-corei7-64: |
+  fstypes: |
     # Needed for qemu
     IMAGE_FSTYPES += "ext4"
 

@@ -24,7 +24,7 @@ $ cd yald-build
 $ kas-container build kas/<machine>.yaml
 ```
 
-Replace `<machine>` with `qemux86-64` or `intel-corei7-64`.
+Replace `<machine>` with `qemux86-64`, `intel-corei7-64` or `raspberrypi3-64`.
 
 ### Build the Software Development Kit (SDK)
 
@@ -65,16 +65,16 @@ $ umount /dev/sdX1
 $ umount /dev/sdX2
 ```
 
-Now copy the `.wic` image for the desired target onto the flash drive. Using `bmaptool` is recommended as it is much faster than `dd`:
+Now copy the wic image for the desired target onto the flash drive. Using `bmaptool` is recommended as it is much faster than `dd`:
 
 ```bash
-$ sudo bmaptool copy build/tmp/deploy/images/intel-corei7-64/yald-image-dev-intel-corei7-64.rootfs.wic.xz /dev/sdX
+$ sudo bmaptool copy build/tmp/deploy/images/<machine>/yald-image-dev-<machine>.rootfs.wic.xz /dev/sdX
 ```
 
 or
 
 ```bash
-$ sudo dd if=build/tmp/deploy/images/intel-corei7-64/yald-image-dev-intel-corei7-64.rootfs.wic of=/dev/sdX status=progress
+$ sudo dd if=build/tmp/deploy/images/<machine>/yald-image-dev-<machine>.rootfs.wic of=/dev/sdX status=progress
 ```
 
 This should give you a bootable device.  Insert the device into the target and power on.
