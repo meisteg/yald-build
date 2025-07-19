@@ -10,7 +10,7 @@ target:
 repos:
   poky:
     url: "https://git.yoctoproject.org/git/poky"
-    commit: fd9b605507a20d850a9991316cd190c1d20dc4a6   # walnascar-5.2.1
+    commit: 41038342a471b4a8884548568ad147a1704253a3   # walnascar-5.2.2
     path: layers/poky
     layers:
       meta:
@@ -18,6 +18,13 @@ repos:
 
   meta-yald:
     path: layers/meta-yald
+
+  meta-openembedded:
+    url: "https://github.com/openembedded/meta-openembedded"
+    commit: c009244a045923a9dfc32d7f2996cb61629870f6
+    path: layers/meta-openembedded
+    layers:
+      meta-oe:
 
 local_conf_header:
   reduce_diskspace: |
