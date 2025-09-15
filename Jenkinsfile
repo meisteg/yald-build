@@ -2,6 +2,7 @@ pipeline {
     agent none
     options {
         timestamps()
+        disableConcurrentBuilds(abortPrevious: true)
     }
     stages {
         stage('machines') {
