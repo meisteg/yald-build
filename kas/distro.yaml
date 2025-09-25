@@ -15,6 +15,7 @@ repos:
     layers:
       meta:
       meta-poky:
+      meta-yocto-bsp:
 
   meta-yald:
     path: layers/meta-yald
@@ -25,6 +26,7 @@ repos:
     path: layers/meta-openembedded
     layers:
       meta-oe:
+      meta-perl:
 
 local_conf_header:
   reduce_diskspace: |

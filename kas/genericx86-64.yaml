@@ -1,0 +1,29 @@
+header:
+  version: 14
+  includes:
+  - kas/distro.yaml
+
+machine: genericx86-64
+
+repos:
+  meta-secure-core:
+    url: "https://github.com/Wind-River/meta-secure-core"
+    commit: 243281acbb4d3839b80b795030a7f4900e254735
+    path: layers/meta-secure-core
+    layers:
+      meta-efi-secure-boot:
+      meta-secure-core-common:
+      meta-signing-key:
+
+local_conf_header:
+  enable_secure_boot: |
+    DISTRO_FEATURES_NATIVE:append = " efi-secure-boot"
+    DISTRO_FEATURES:append = " efi-secure-boot modsign"
+
+  fstypes: |
+    # Needed for qemu
+    IMAGE_FSTYPES += "ext4"
+
+    # bmaptool supports flashing a compressed wic file.
+    # Create one to use less space when saving build artifacts.
+    IMAGE_FSTYPES += "wic.xz"
