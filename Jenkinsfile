@@ -32,15 +32,15 @@ pipeline {
                 }
                 post {
                     always {
-                        archiveArtifacts artifacts: 'logs/*.log'
+                        archiveArtifacts artifacts: "logs/*_${MACHINE}.log"
                     }
                 }
             }
         }
-        post {
-            cleanup {
-                cleanWs()
-            }
+    }
+    post {
+        cleanup {
+            cleanWs()
         }
     }
 }
