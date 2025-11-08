@@ -1,5 +1,5 @@
 header:
-  version: 14
+  version: 15
   includes:
   - kas/distro.yaml
 
@@ -8,7 +8,7 @@ machine: raspberrypi3-64
 repos:
   meta-raspberrypi:
     url: "https://git.yoctoproject.org/git/meta-raspberrypi"
-    commit: 1059a239ca756d97e99f0ef7d5a0debc5200db7a
+    commit: 5c540d5447fba8b652c8778af30e605242df650c
     path: layers/meta-raspberrypi
 
 local_conf_header:
