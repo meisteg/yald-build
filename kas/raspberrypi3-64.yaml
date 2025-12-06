@@ -8,7 +8,7 @@ machine: raspberrypi3-64
 repos:
   meta-raspberrypi:
     url: "https://git.yoctoproject.org/git/meta-raspberrypi"
-    commit: 5c540d5447fba8b652c8778af30e605242df650c
+    branch: whinlatter
     path: layers/meta-raspberrypi
 
 local_conf_header:

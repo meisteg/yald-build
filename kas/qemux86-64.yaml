@@ -1,6 +1,0 @@
-header:
-  version: 15
-  includes:
-  - kas/distro.yaml
-
-machine: qemux86-64

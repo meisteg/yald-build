@@ -8,21 +8,34 @@ target:
   - yald-image-dev
 
 repos:
-  poky:
-    url: "https://git.yoctoproject.org/git/poky"
-    tag: walnascar-5.2.4
-    commit: d0b46a6624ec9c61c47270745dd0b2d5abbe6ac1
-    path: layers/poky
+  meta-yocto:
+    url: "https://git.yoctoproject.org/git/meta-yocto"
+    branch: whinlatter
+    path: layers/meta-yocto
+    layers:
+      meta-poky:
+      meta-yocto-bsp:
+
+  openembedded-core:
+    url: https://git.openembedded.org/openembedded-core
+    branch: whinlatter
+    path: layers/openembedded-core
     layers:
       meta:
-      meta-poky:
+
+  bitbake:
+    url: https://git.openembedded.org/bitbake
+    branch: "2.14"
+    path: layers/bitbake
+    layers:
+      .: disabled
 
   meta-yald:
     path: layers/meta-yald
 
   meta-openembedded:
     url: "https://github.com/openembedded/meta-openembedded"
-    commit: 07330a98cf93806b7a4e0170a541b94962ff3960
+    branch: whinlatter
     path: layers/meta-openembedded
     layers:
       meta-oe:

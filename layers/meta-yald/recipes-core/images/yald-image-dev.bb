@@ -19,4 +19,4 @@ IMAGE_INSTALL:append = " util-linux"
 
 # Machine specific tools
 
-IMAGE_INSTALL:append:intel-corei7-64 = " pciutils"
+IMAGE_INSTALL:append:genericx86-64 = " pciutils"

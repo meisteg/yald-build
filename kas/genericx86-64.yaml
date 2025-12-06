@@ -1,0 +1,11 @@
+header:
+  version: 15
+  includes:
+  - kas/distro.yaml
+
+machine: genericx86-64
+
+local_conf_header:
+  fstypes: |
+    # Needed for qemu
+    IMAGE_FSTYPES += "ext4.zst"

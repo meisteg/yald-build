@@ -1,4 +1,4 @@
-FILESEXTRAPATHS:prepend := "${THISDIR}/linux-intel:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/linux-yocto:"
 
 SRC_URI += "file://ath10k.cfg"
 

@@ -13,7 +13,7 @@ pipeline {
                 axes {
                     axis {
                         name 'MACHINE'
-                        values 'intel-corei7-64', 'qemux86-64', 'raspberrypi3-64'
+                        values 'genericx86-64', 'raspberrypi3-64'
                     }
                 }
                 stages {

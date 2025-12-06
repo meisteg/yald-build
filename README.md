@@ -24,7 +24,7 @@ $ cd yald-build
 $ kas-container build kas/<machine>.yaml
 ```
 
-Replace `<machine>` with `qemux86-64`, `intel-corei7-64` or `raspberrypi3-64`.
+Replace `<machine>` with `genericx86-64` or `raspberrypi3-64`.
 
 ### Build the Software Development Kit (SDK)
 
@@ -37,13 +37,13 @@ $ kas-container build kas/<machine>.yaml:kas/sdk.yaml
 Development image:
 
 ```bash
-$ kas-container --runtime-args --device=/dev/kvm shell kas/<machine>.yaml -c "runqemu <machine> tmp/deploy/images/<machine>/yald-image-dev-<machine>.rootfs.qemuboot.conf nographic slirp kvm"
+$ kas-container --runtime-args --device=/dev/kvm shell kas/<machine>.yaml -c "runqemu <machine> tmp/deploy/images/<machine>/yald-image-dev-<machine>.rootfs.qemuboot.conf nographic slirp kvm snapshot"
 ```
 
 Production image:
 
 ```bash
-$ kas-container --runtime-args --device=/dev/kvm shell kas/<machine>.yaml -c "runqemu <machine> tmp/deploy/images/<machine>/yald-image-prod-<machine>.rootfs.qemuboot.conf nographic slirp kvm"
+$ kas-container --runtime-args --device=/dev/kvm shell kas/<machine>.yaml -c "runqemu <machine> tmp/deploy/images/<machine>/yald-image-prod-<machine>.rootfs.qemuboot.conf nographic slirp kvm snapshot"
 ```
 
 To quit QEMU, enter `Ctrl-A x`.
@@ -68,7 +68,7 @@ $ umount /dev/sdX2
 Now copy the wic image for the desired target onto the flash drive. Using `bmaptool` is recommended as it is much faster than `dd`:
 
 ```bash
-$ sudo bmaptool copy build/tmp/deploy/images/<machine>/yald-image-dev-<machine>.rootfs.wic.xz /dev/sdX
+$ sudo bmaptool copy build/tmp/deploy/images/<machine>/yald-image-dev-<machine>.rootfs.wic.zst /dev/sdX
 ```
 
 or
