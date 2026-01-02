@@ -7,13 +7,7 @@
 [kas](https://kas.readthedocs.io) is used to build yald. To install `kas`:
 
 ```bash
-$ sudo pip install kas
-```
-
-If an externally managed environment error is seen, Ubuntu-based systems have the option to run:
-
-```bash
-$ sudo apt install kas
+$ pipx install kas
 ```
 
 ### Start the Build
