@@ -1,5 +1,10 @@
 header:
-  version: 15
+  version: 19
+
+signers:
+  YoctoBuildandRelease:
+    fingerprint: 2AFB13F28FBBB0D1B9DAF63087EB3D32FB631AD9
+    gpg_keyserver: keyserver.ubuntu.com
 
 distro: yald
 
@@ -13,6 +18,9 @@ repos:
     tag: yocto-5.3
     commit: d02d3faaf4d6075ea03e9eb47654ec7639f929a0
     path: layers/meta-yocto
+    signed: true
+    allowed_signers:
+      - YoctoBuildandRelease
     layers:
       meta-poky:
       meta-yocto-bsp:
@@ -22,6 +30,9 @@ repos:
     tag: yocto-5.3
     commit: 8519978592483bb096ed5192fff7af6c887b799e
     path: layers/openembedded-core
+    signed: true
+    allowed_signers:
+      - YoctoBuildandRelease
     layers:
       meta:
 
@@ -30,6 +41,9 @@ repos:
     tag: yocto-5.3
     commit: 720df1a53452983c1c832f624490e255cf389204
     path: layers/bitbake
+    signed: true
+    allowed_signers:
+      - YoctoBuildandRelease
     layers:
       .: disabled
 

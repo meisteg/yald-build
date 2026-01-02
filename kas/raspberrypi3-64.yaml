@@ -1,5 +1,5 @@
 header:
-  version: 15
+  version: 19
   includes:
   - kas/distro.yaml
 
@@ -8,7 +8,8 @@ machine: raspberrypi3-64
 repos:
   meta-raspberrypi:
     url: "https://git.yoctoproject.org/git/meta-raspberrypi"
-    branch: whinlatter
+    # Using master branch commit as no whinlatter branch yet
+    commit: 44cb3ba79c736732b8d4a9311181055e18e863d3
     path: layers/meta-raspberrypi
 
 local_conf_header:
