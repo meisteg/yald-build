@@ -52,7 +52,7 @@ repos:
 
   meta-openembedded:
     url: "https://github.com/openembedded/meta-openembedded"
-    commit: 09c7f76c196876a4366f220b360f4bdb93ab95c0
+    commit: a4e768dcfae181dd99e39c4286fa0729ca7f4e47
     path: layers/meta-openembedded
     layers:
       meta-oe:

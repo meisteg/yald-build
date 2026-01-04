@@ -31,13 +31,13 @@ $ kas-container build kas/<machine>.yaml:kas/sdk.yaml
 Development image:
 
 ```bash
-$ kas-container --runtime-args --device=/dev/kvm shell kas/<machine>.yaml -c "runqemu <machine> tmp/deploy/images/<machine>/yald-image-dev-<machine>.rootfs.qemuboot.conf nographic slirp kvm snapshot"
+$ kas-container --runtime-args --device=/dev/kvm shell kas/<machine>.yaml -c "runqemu <machine> yald-image-dev nographic slirp kvm snapshot"
 ```
 
 Production image:
 
 ```bash
-$ kas-container --runtime-args --device=/dev/kvm shell kas/<machine>.yaml -c "runqemu <machine> tmp/deploy/images/<machine>/yald-image-prod-<machine>.rootfs.qemuboot.conf nographic slirp kvm snapshot"
+$ kas-container --runtime-args --device=/dev/kvm shell kas/<machine>.yaml -c "runqemu <machine> yald-image-prod nographic slirp kvm snapshot"
 ```
 
 To quit QEMU, enter `Ctrl-A x`.
