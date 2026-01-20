@@ -17,6 +17,11 @@ local_conf_header:
     # Uncomment to enable serial
     # ENABLE_UART = "1"
 
+  usb_boot: |
+    CMDLINE_ROOT_PARTITION = "/dev/sda2"
+    BOOT_MEDIA = "usb"
+    WKS_FILE = "yald-sdimage-raspberrypi.wks"
+
   fstypes: |
     # Enable faster flashing with bmaptool
     IMAGE_FSTYPES = "wic.xz wic.bmap"
