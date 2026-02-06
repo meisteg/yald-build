@@ -26,6 +26,13 @@ Replace `<machine>` with `genericx86-64` or `raspberrypi3-64`.
 $ kas-container build kas/<machine>.yaml:kas/sdk.yaml
 ```
 
+### Build with CVE check enabled
+
+```bash
+$ kas-container build kas/<machine>.yaml:kas/cve.yaml
+$ python3 layers/openembedded-core/scripts/contrib/improve_kernel_cve_report.py --spdx build/tmp/deploy/spdx/3.0.1/<machine>/recipes/recipe-linux-yocto.spdx.json --datadir vulns --old-cve-report build/tmp/log/cve/cve-summary.json
+```
+
 ## Run on QEMU
 
 Development image:

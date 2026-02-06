@@ -1,0 +1,16 @@
+header:
+  version: 19
+
+repos:
+  vulns:
+    url: https://git.kernel.org/pub/scm/linux/security/vulns.git
+    # Always track latest commit
+    branch: master
+    path: vulns
+    layers:
+      .: disabled
+
+local_conf_header:
+  enable_cve_check: |
+    SPDX_INCLUDE_COMPILED_SOURCES:pn-linux-yocto = "1"
+    INHERIT += "cve-check"
