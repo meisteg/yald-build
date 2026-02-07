@@ -14,6 +14,7 @@ SRC_URI += " \
 KERNEL_FEATURES:append = " features/nf_tables/nf_tables.scc"
 
 # Disable kernel options if not in distro
+KERNEL_FEATURES:append = " ${@bb.utils.contains("DISTRO_FEATURES", "alsa", "", " disable-sound.scc", d)}"
 KERNEL_FEATURES:append = " ${@bb.utils.contains("DISTRO_FEATURES", "bluetooth", "", " disable-bluetooth.scc", d)}"
 
 RDEPENDS:${KERNEL_PACKAGE_NAME} += "linux-firmware-ath10k"
