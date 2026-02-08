@@ -1,0 +1,4 @@
+define KFEATURE_DESCRIPTION "Enable WiFi"
+define KFEATURE_COMPATIBILITY board
+
+kconf hardware ath10k.cfg
