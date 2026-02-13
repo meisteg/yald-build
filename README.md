@@ -30,7 +30,12 @@ $ kas-container build kas/<machine>.yaml:kas/sdk.yaml
 
 ```bash
 $ kas-container build --update kas/<machine>.yaml:kas/cve.yaml
-$ python3 layers/openembedded-core/scripts/contrib/improve_kernel_cve_report.py --spdx build/tmp/deploy/spdx/3.0.1/<machine>/recipes/recipe-linux-yocto.spdx.json --datadir vulns --old-cve-report build/tmp/log/cve/cve-summary.json
+
+# For genericx86-64
+$ python3 layers/openembedded-core/scripts/contrib/improve_kernel_cve_report.py --debug-sources build/tmp/pkgdata/genericx86-64/debugsources/linux-yocto-debugsources.json.zstd --datadir vulns --old-cve-report build/tmp/log/cve/cve-summary.json --new-cve-report build/tmp/log/cve/cve-summary-enhance.json
+
+# For raspberrypi3-64
+$ python3 layers/openembedded-core/scripts/contrib/improve_kernel_cve_report.py --spdx build/tmp/deploy/spdx/3.0.1/raspberrypi3_64/recipes/recipe-linux-raspberrypi.spdx.json --datadir vulns --old-cve-report build/tmp/log/cve/cve-summary.json --new-cve-report build/tmp/log/cve/cve-summary-enhance.json
 ```
 
 ## Run on QEMU
