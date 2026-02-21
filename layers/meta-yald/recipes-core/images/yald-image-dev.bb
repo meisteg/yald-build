@@ -15,6 +15,7 @@ IMAGE_INSTALL:append = " e2fsprogs"
 IMAGE_INSTALL:append = " htop"
 IMAGE_INSTALL:append = " inetutils-ifconfig"
 IMAGE_INSTALL:append = " omping"
+IMAGE_INSTALL:append = " tree"
 IMAGE_INSTALL:append = " util-linux"
 
 # Machine specific tools
