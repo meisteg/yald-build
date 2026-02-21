@@ -1,9 +1,12 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/linux-yocto:"
 
-# Note: Whinlatter 5.3.1 is currently on Linux 6.12.60
-SRCREV_machine = "db1df153bf158b548f3b58c167f91f30e2dd0b5e"
-SRCREV_meta = "5b1ff7df002df6e7069a53b361d9e8f5f9df3aac"
-LINUX_VERSION = "6.12.69"
+SRCREV_machine = "057e0bf6446ead5535717da84b234c64615458db"
+SRCREV_meta = "8e6a09c7a858e7dd1c1120b3838fe463a273a1b5"
+LINUX_VERSION = "6.18.11"
+
+# Since we backported the 6.18 recipe, meta-yocto-bsp does not set these for this version.
+COMPATIBLE_MACHINE:genericx86-64 = "genericx86-64"
+KMACHINE:genericx86-64 ?= "common-pc-64"
 
 SRC_URI += " \
     file://firewalld.cfg \
