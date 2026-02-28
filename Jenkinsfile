@@ -63,7 +63,7 @@ pipeline {
                 }
                 post { 
                     always {
-                        archiveArtifacts artifacts: 'logs/*.log, build/tmp/log/cve/cve-summary*.json'
+                        archiveArtifacts artifacts: 'logs/*.log, build/tmp/log/cve/cve-summary-enhance_*.json'
                     }
                     cleanup { 
                         cleanWs()
