@@ -21,7 +21,12 @@ pipeline {
                         steps {
                             checkout scm
                             sh "mkdir logs"
-                            sh "kas-container build kas/${MACHINE}.yaml 2>&1 | tee logs/build_${MACHINE}.log"
+                            sh "kas-container build kas/${MACHINE}.yaml:kas/cve.yaml 2>&1 | tee logs/build_${MACHINE}.log"
+
+                            recordIssues(
+                                sourceCodeRetention: 'LAST_BUILD',
+                                tools: [yoctoScanner(id: MACHINE, name: "$MACHINE CVEs", pattern: 'build/tmp/deploy/cve/cve-summary.json')]
+                            )
                         }
                     }
                     stage('sdk') {
