@@ -81,7 +81,7 @@ pipeline {
                     stage('artifacts') {
                         steps {
                             dir("build/tmp/deploy") {
-                                nexusUpload("images/${MACHINE}/yald-image-*-${MACHINE}.rootfs.wic.*, sdk/*.sh")
+                                nexusUpload("images/${MACHINE}/*-${MACHINE}.rootfs.*, images/${MACHINE}/bzImage, sdk/*.sh")
                             }
                         }
                     }
