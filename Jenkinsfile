@@ -80,7 +80,9 @@ pipeline {
                     }
                     stage('artifacts') {
                         steps {
-                            nexusUpload("yald-image-*-${MACHINE}.rootfs.wic.*")
+                            dir("build/tmp/deploy") {
+                                nexusUpload("images/${MACHINE}/yald-image-*-${MACHINE}.rootfs.wic.*, sdk/*.sh")
+                            }
                         }
                     }
                 }
