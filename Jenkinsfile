@@ -45,22 +45,11 @@ pipeline {
                                 kas-container build kas/${MACHINE}.yaml:kas/cve.yaml 2>&1 | tee logs/build_${MACHINE}.log
                             """
 
-                            script {
-                                // Raspberry PI doesn't work with the debug sources, so use the spdx instead
-                                if (MACHINE == 'raspberrypi3-64') {
-                                    sh "python3 layers/openembedded-core/scripts/contrib/improve_kernel_cve_report.py \
-                                            --spdx build/tmp/deploy/spdx/3.0.1/raspberrypi3_64/recipes/recipe-linux-raspberrypi.spdx.json \
-                                            --datadir vulns \
-                                            --old-cve-report build/tmp/log/cve/cve-summary.json \
-                                            --new-cve-report build/tmp/log/cve/cve-summary-enhance_${MACHINE}.json"
-                                } else {
-                                    sh "python3 layers/openembedded-core/scripts/contrib/improve_kernel_cve_report.py \
-                                            --debug-sources build/tmp/pkgdata/${MACHINE}/debugsources/linux-yocto-debugsources.json.zstd \
-                                            --datadir vulns \
-                                            --old-cve-report build/tmp/log/cve/cve-summary.json \
-                                            --new-cve-report build/tmp/log/cve/cve-summary-enhance_${MACHINE}.json"
-                                }
-                            }
+                            sh "python3 layers/openembedded-core/scripts/contrib/improve_kernel_cve_report.py \
+                                    --debug-sources build/tmp/pkgdata/${MACHINE}/debugsources/linux-*-debugsources.json.zstd \
+                                    --datadir vulns \
+                                    --old-cve-report build/tmp/log/cve/cve-summary.json \
+                                    --new-cve-report build/tmp/log/cve/cve-summary-enhance_${MACHINE}.json"
 
                             // Want to use the enhanced report, but new CVEs that do not have a score trip up the plugin.
                             recordIssues(
