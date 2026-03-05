@@ -12,5 +12,4 @@ repos:
 
 local_conf_header:
   enable_cve_check: |
-    SPDX_INCLUDE_COMPILED_SOURCES:pn-linux-yocto = "1"
     INHERIT += "cve-check"
