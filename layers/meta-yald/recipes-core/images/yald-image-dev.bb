@@ -20,4 +20,5 @@ IMAGE_INSTALL:append = " util-linux"
 
 # Machine specific tools
 
+IMAGE_INSTALL:append:genericx86-64 = " pcimem"
 IMAGE_INSTALL:append:genericx86-64 = " pciutils"
