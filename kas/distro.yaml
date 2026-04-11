@@ -15,8 +15,8 @@ target:
 repos:
   meta-yocto:
     url: "https://git.yoctoproject.org/git/meta-yocto"
-    tag: yocto-5.3.2
-    commit: 691ff0fbeab54eceb26d90140d7a8f672532235b
+    tag: yocto-5.3.3
+    commit: 9b98ec5e6cfb6c9dc74d3c2e6304eeb274f7c487
     path: layers/meta-yocto
     signed: true
     allowed_signers:
@@ -27,8 +27,8 @@ repos:
 
   openembedded-core:
     url: https://git.openembedded.org/openembedded-core
-    tag: yocto-5.3.2
-    commit: 21314665e198c1abe458d0bad5c4d14d4c3ad856
+    tag: yocto-5.3.3
+    commit: ab57471acad7ce2a037480dc7b301104620f1ebf
     path: layers/openembedded-core
     signed: true
     allowed_signers:
@@ -38,7 +38,7 @@ repos:
 
   bitbake:
     url: https://git.openembedded.org/bitbake
-    tag: yocto-5.3.2
+    tag: yocto-5.3.3
     commit: 7af7e04f3adc8ba144d9e2e6b37ed4ddb3b59df0
     path: layers/bitbake
     signed: true
@@ -52,7 +52,7 @@ repos:
 
   meta-openembedded:
     url: "https://github.com/openembedded/meta-openembedded"
-    commit: 12fc4c6584e001f89108a6691ccf2028eb05ed5a
+    commit: 8bcdb0cc1dab116253b409e78fb868ced7d8397c
     path: layers/meta-openembedded
     layers:
       meta-oe:
