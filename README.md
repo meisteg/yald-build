@@ -18,7 +18,7 @@ $ cd yald-build
 $ kas-container build kas/<machine>.yaml
 ```
 
-Replace `<machine>` with `genericx86-64` or `raspberrypi3-64`.
+Replace `<machine>` with `genericx86-64`.
 
 ### Build the Software Development Kit (SDK)
 
@@ -29,8 +29,7 @@ $ kas-container build kas/<machine>.yaml:kas/sdk.yaml
 ### Build with CVE check enabled
 
 ```bash
-$ kas-container build --update kas/<machine>.yaml:kas/cve.yaml
-$ python3 layers/openembedded-core/scripts/contrib/improve_kernel_cve_report.py --debug-sources build/tmp/pkgdata/<machine>/debugsources/linux-*-debugsources.json.zstd --datadir vulns --old-cve-report build/tmp/log/cve/cve-summary.json --new-cve-report build/tmp/log/cve/cve-summary-enhance.json
+$ kas-container build kas/<machine>.yaml:kas/cve.yaml
 ```
 
 ## Run on QEMU

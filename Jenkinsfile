@@ -32,7 +32,7 @@ pipeline {
                 axes {
                     axis {
                         name 'MACHINE'
-                        values 'genericx86-64', 'raspberrypi3-64'
+                        values 'genericx86-64'
                     }
                 }
                 stages {
@@ -45,16 +45,9 @@ pipeline {
                                 kas-container build kas/${MACHINE}.yaml:kas/cve.yaml 2>&1 | tee logs/build_${MACHINE}.log
                             """
 
-                            sh "python3 layers/openembedded-core/scripts/contrib/improve_kernel_cve_report.py \
-                                    --debug-sources build/tmp/pkgdata/${MACHINE}/debugsources/linux-*-debugsources.json.zstd \
-                                    --datadir vulns \
-                                    --old-cve-report build/tmp/log/cve/cve-summary.json \
-                                    --new-cve-report build/tmp/log/cve/cve-summary-enhance_${MACHINE}.json"
-
-                            // Want to use the enhanced report, but new CVEs that do not have a score trip up the plugin.
                             recordIssues(
                                 sourceCodeRetention: 'LAST_BUILD',
-                                tools: [yoctoScanner(id: MACHINE, name: "$MACHINE CVE", pattern: 'build/tmp/log/cve/cve-summary.json')],
+                                tools: [yoctoScanner(id: MACHINE, name: "$MACHINE CVE", pattern: "build/tmp/deploy/images/${MACHINE}/yald-image-dev-${MACHINE}.rootfs.sbom-cve-check.yocto.json")],
                                 failOnError: true
                             )
                         }
@@ -77,7 +70,7 @@ pipeline {
                 }
                 post { 
                     always {
-                        archiveArtifacts artifacts: 'logs/*.log, build/tmp/log/cve/cve-summary-enhance_*.json'
+                        archiveArtifacts artifacts: 'logs/*.log'
                     }
                     cleanup { 
                         cleanWs()

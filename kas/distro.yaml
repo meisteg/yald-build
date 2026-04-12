@@ -1,11 +1,6 @@
 header:
   version: 19
 
-signers:
-  YoctoBuildandRelease:
-    fingerprint: 2AFB13F28FBBB0D1B9DAF63087EB3D32FB631AD9
-    gpg_keyserver: keyserver.ubuntu.com
-
 distro: yald
 
 target:
@@ -14,36 +9,30 @@ target:
 
 repos:
   meta-yocto:
-    url: "https://git.yoctoproject.org/git/meta-yocto"
-    tag: yocto-5.3.3
-    commit: 9b98ec5e6cfb6c9dc74d3c2e6304eeb274f7c487
+    url: https://git.yoctoproject.org/git/meta-yocto
+    # Using master branch commit as no wrynose branch yet
+    branch: master
+    commit: 49cbb01d52521bfe557395c9ebfae6b1c162581e
     path: layers/meta-yocto
-    signed: true
-    allowed_signers:
-      - YoctoBuildandRelease
     layers:
       meta-poky:
       meta-yocto-bsp:
 
   openembedded-core:
     url: https://git.openembedded.org/openembedded-core
-    tag: yocto-5.3.3
-    commit: ab57471acad7ce2a037480dc7b301104620f1ebf
+    # Using master branch commit as no wrynose branch yet
+    branch: master
+    commit: f235ffc43c7783a84e1ac0dce8489fcba8354e12
     path: layers/openembedded-core
-    signed: true
-    allowed_signers:
-      - YoctoBuildandRelease
     layers:
       meta:
 
   bitbake:
     url: https://git.openembedded.org/bitbake
-    tag: yocto-5.3.3
-    commit: 7af7e04f3adc8ba144d9e2e6b37ed4ddb3b59df0
+    # Using master branch commit as no wrynose branch yet
+    branch: master
+    commit: 5d722b5d65e4eef7befe6376983385421e993f86
     path: layers/bitbake
-    signed: true
-    allowed_signers:
-      - YoctoBuildandRelease
     layers:
       .: disabled
 
@@ -51,8 +40,10 @@ repos:
     path: layers/meta-yald
 
   meta-openembedded:
-    url: "https://github.com/openembedded/meta-openembedded"
-    commit: 8bcdb0cc1dab116253b409e78fb868ced7d8397c
+    url: https://github.com/openembedded/meta-openembedded
+    # Using master branch commit as no wrynose branch yet
+    branch: master
+    commit: d793c367e067c49956d38caf6eb84cb112c9c9b7
     path: layers/meta-openembedded
     layers:
       meta-oe:

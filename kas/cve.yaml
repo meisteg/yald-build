@@ -1,15 +1,6 @@
 header:
   version: 19
 
-repos:
-  vulns:
-    url: https://git.kernel.org/pub/scm/linux/security/vulns.git
-    # Always track latest commit
-    branch: master
-    path: vulns
-    layers:
-      .: disabled
-
 local_conf_header:
   enable_cve_check: |
-    INHERIT += "cve-check"
+    OE_FRAGMENTS += "core/yocto/sbom-cve-check"
