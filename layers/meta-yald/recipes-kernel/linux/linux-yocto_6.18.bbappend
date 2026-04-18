@@ -6,6 +6,7 @@ LINUX_VERSION = "6.18.21"
 
 SRC_URI += " \
     file://firewalld.cfg \
+    file://watchdog.cfg \
 "
 
 # Required for firewalld

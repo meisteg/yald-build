@@ -10,8 +10,7 @@ target:
 repos:
   meta-yocto:
     url: https://git.yoctoproject.org/git/meta-yocto
-    # Using master branch commit as no wrynose branch yet
-    branch: master
+    tag: yocto-6.0_M3
     commit: 49cbb01d52521bfe557395c9ebfae6b1c162581e
     path: layers/meta-yocto
     layers:
@@ -20,8 +19,7 @@ repos:
 
   openembedded-core:
     url: https://git.openembedded.org/openembedded-core
-    # Using master branch commit as no wrynose branch yet
-    branch: master
+    tag: yocto-6.0_M3
     commit: f235ffc43c7783a84e1ac0dce8489fcba8354e12
     path: layers/openembedded-core
     layers:
@@ -29,8 +27,7 @@ repos:
 
   bitbake:
     url: https://git.openembedded.org/bitbake
-    # Using master branch commit as no wrynose branch yet
-    branch: master
+    tag: yocto-6.0_M3
     commit: 5d722b5d65e4eef7befe6376983385421e993f86
     path: layers/bitbake
     layers:
@@ -43,7 +40,7 @@ repos:
     url: https://github.com/openembedded/meta-openembedded
     # Using master branch commit as no wrynose branch yet
     branch: master
-    commit: d793c367e067c49956d38caf6eb84cb112c9c9b7
+    commit: d2e6069771e435231a220a8ecac20c0e7ceff037
     path: layers/meta-openembedded
     layers:
       meta-oe:
