@@ -1,8 +1,8 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/linux-yocto:"
 
-SRCREV_machine = "82a182f895e9b2a4021cd580e8f3fd18ac82420a"
-SRCREV_meta = "8af6e86ecd97388ecbae830d484445146a2a2159"
-LINUX_VERSION = "6.18.21"
+SRCREV_machine = "61a746df3dd151cccb3078ee6e1092d227b2514a"
+SRCREV_meta = "177495c151446a679945c20611499537d72ebcd9"
+LINUX_VERSION = "6.18.25"
 
 SRC_URI += " \
     file://firewalld.cfg \
