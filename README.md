@@ -37,13 +37,25 @@ $ kas-container build kas/<machine>.yaml:kas/cve.yaml
 Development image:
 
 ```bash
-$ kas-container --runtime-args --device=/dev/kvm shell kas/<machine>.yaml -c "runqemu <machine> yald-image-dev nographic slirp kvm snapshot"
+$ kas-container --runtime-args "--net=host --device=/dev/kvm" shell kas/<machine>.yaml -c "runqemu yald-image-dev nographic slirp kvm snapshot"
 ```
 
 Production image:
 
 ```bash
-$ kas-container --runtime-args --device=/dev/kvm shell kas/<machine>.yaml -c "runqemu <machine> yald-image-prod nographic slirp kvm snapshot"
+$ kas-container --runtime-args "--net=host --device=/dev/kvm" shell kas/<machine>.yaml -c "runqemu yald-image-prod nographic slirp kvm snapshot"
+```
+
+To connect to the running target from the host, use:
+
+```bash
+$ ssh -p 2222 root@localhost
+```
+
+To copy files to the target, you can use `scp`. For example:
+
+```bash
+scp -P 2222 <filename> root@localhost:~
 ```
 
 To quit QEMU, enter `Ctrl-A x`.
@@ -52,7 +64,7 @@ To quit QEMU, enter `Ctrl-A x`.
 
 Once the image is built, the bootable image is in the `build/tmp/deploy/images/<machine>` directory.
 
-Under Linux, insert a USB flash drive or SD card (depending on what the target machine requires).  Use `bmaptool` or `dd` to copy the image to it.  Before the image can be flashed onto the drive, it should be un-mounted. Some Linux distros may automatically mount a USB drive when it is plugged in. Using device `/dev/sdX` as an example, find all mounted partitions:
+Under Linux, insert a USB flash drive or SD card (depending on what the target machine requires).  Use `bmaptool` to copy the image to it.  Before the image can be flashed onto the drive, it should be un-mounted. Some Linux distros may automatically mount a USB drive when it is plugged in. Using device `/dev/sdX` as an example, find all mounted partitions:
 
 ```bash
 $ mount | grep sdX
@@ -71,10 +83,4 @@ Now copy the wic image for the desired target onto the flash drive. Using `bmapt
 $ sudo bmaptool copy build/tmp/deploy/images/<machine>/yald-image-dev-<machine>.rootfs.wic.zst /dev/sdX
 ```
 
-or
-
-```bash
-$ sudo dd if=build/tmp/deploy/images/<machine>/yald-image-dev-<machine>.rootfs.wic of=/dev/sdX status=progress
-```
-
-This should give you a bootable device.  Insert the device into the target and power on.
+This will give you a bootable device.  Insert the device into the target and power on.

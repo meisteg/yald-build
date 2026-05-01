@@ -1,7 +1,7 @@
 header:
   version: 19
   includes:
-  - kas/distro.yaml
+    - kas/distro.yaml
 
 machine: genericx86-64
 
