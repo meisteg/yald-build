@@ -10,8 +10,8 @@ target:
 repos:
   meta-yocto:
     url: https://git.yoctoproject.org/git/meta-yocto
-    tag: yocto-6.0_M3
-    commit: 49cbb01d52521bfe557395c9ebfae6b1c162581e
+    tag: yocto-6.0
+    commit: 904846ae078ee20de073040ebb77c86e19250f56
     path: layers/meta-yocto
     layers:
       meta-poky:
@@ -19,16 +19,16 @@ repos:
 
   openembedded-core:
     url: https://git.openembedded.org/openembedded-core
-    tag: yocto-6.0_M3
-    commit: f235ffc43c7783a84e1ac0dce8489fcba8354e12
+    tag: yocto-6.0
+    commit: 42fa856a00ac16b2a7a83d7ecfa60a5be192b16c
     path: layers/openembedded-core
     layers:
       meta:
 
   bitbake:
     url: https://git.openembedded.org/bitbake
-    tag: yocto-6.0_M3
-    commit: 5d722b5d65e4eef7befe6376983385421e993f86
+    tag: yocto-6.0
+    commit: 33581c84f3a85008239acbd940501a35de48dc91
     path: layers/bitbake
     layers:
       .: disabled
