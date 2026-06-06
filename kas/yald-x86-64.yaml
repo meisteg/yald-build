@@ -1,0 +1,6 @@
+header:
+  version: 19
+  includes:
+    - kas/distro.yaml
+
+machine: yald-x86-64

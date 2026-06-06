@@ -32,7 +32,7 @@ pipeline {
                 axes {
                     axis {
                         name 'MACHINE'
-                        values 'genericx86-64'
+                        values 'yald-x86-64'
                     }
                 }
                 stages {
@@ -68,11 +68,11 @@ pipeline {
                         }
                     }
                 }
-                post { 
+                post {
                     always {
                         archiveArtifacts artifacts: 'logs/*.log'
                     }
-                    cleanup { 
+                    cleanup {
                         cleanWs()
                     }
                 }

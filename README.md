@@ -18,7 +18,7 @@ $ cd yald-build
 $ kas-container build kas/<machine>.yaml
 ```
 
-Replace `<machine>` with `genericx86-64`.
+Replace `<machine>` with `yald-x86-64`.
 
 ### Build the Software Development Kit (SDK)
 

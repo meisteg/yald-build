@@ -39,7 +39,7 @@ repos:
   meta-openembedded:
     url: https://github.com/openembedded/meta-openembedded
     branch: wrynose
-    commit: 420222862f5a6d95023b8f5f3b7e1808b2264ef9
+    commit: 9af4488d46cb4fd4c0d2d64820c86225ebd6ac71
     path: layers/meta-openembedded
     layers:
       meta-oe:
