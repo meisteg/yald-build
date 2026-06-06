@@ -8,6 +8,7 @@ LINUX_VERSION_EXTENSION ?= "-${DISTRO}-${LINUX_KERNEL_TYPE}"
 
 SRC_URI += " \
     file://firewalld.cfg \
+    file://vfio.cfg \
     file://watchdog.cfg \
 "
 
