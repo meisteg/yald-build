@@ -42,7 +42,7 @@ pipeline {
                             sh """
                                 mkdir logs
                                 set -o pipefail
-                                kas-container build kas/${MACHINE}.yaml:kas/cve.yaml 2>&1 | tee logs/build_${MACHINE}.log
+                                kas-container build kas/${MACHINE}.yaml:kas/ci.yaml:kas/cve.yaml 2>&1 | tee logs/build_${MACHINE}.log
                             """
 
                             recordIssues(
@@ -56,7 +56,7 @@ pipeline {
                         steps {
                             sh """
                                 set -o pipefail
-                                kas-container build kas/${MACHINE}.yaml:kas/sdk.yaml 2>&1 | tee logs/sdk_${MACHINE}.log
+                                kas-container build kas/${MACHINE}.yaml:kas/ci.yaml:kas/sdk.yaml 2>&1 | tee logs/sdk_${MACHINE}.log
                             """
                         }
                     }

@@ -1,0 +1,6 @@
+header:
+  version: 19
+
+local_conf_header:
+  hash_equivalence: |
+    BB_HASHSERVE = "192.168.1.167:8686"
