@@ -7,6 +7,7 @@ LINUX_VERSION = "6.18.35"
 LINUX_VERSION_EXTENSION ?= "-${DISTRO}-${LINUX_KERNEL_TYPE}"
 
 SRC_URI += " \
+    file://hardening.cfg \
     file://firewalld.cfg \
     file://vfio.cfg \
     file://watchdog.cfg \
